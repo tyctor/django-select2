@@ -63,6 +63,18 @@
           $(this).val('').trigger('change')
         })
       })
+      $element.on('select2:clear', function (e) {
+        var name = $(e.currentTarget).attr('name')
+        $("[data-select2-dependent-fields~='" + name + "']").each(function () {
+          $(this).val('').trigger('change')
+        })
+      })
+      $element.on('select2:unselect', function (e) {
+        var name = $(e.currentTarget).attr('name')
+        $("[data-select2-dependent-fields~='" + name + "']").each(function () {
+          $(this).val('').trigger('change')
+        })
+      })
     })
     return this
   }
